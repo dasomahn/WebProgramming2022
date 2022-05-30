@@ -301,10 +301,21 @@ function printWin() {
 }
 
 var ballImg;
-var imgList = ["./image/red.png", "./image/yellow.png", "./image/blue.png"];
+var imgList = [
+  "./image/red.png",
+  "./image/red2.png",
+  "./image/yellow.png",
+  "./image/yellow2.png",
+  "./image/blue.png",
+  "./image/blue2.png",
+];
 function drawBallImage() {
   ballImg = new Image();
-  ballImg.src = imgList[level - 1];
+  if (dx > 0) {
+    ballImg.src = imgList[(level - 1) * 2];
+  } else {
+    ballImg.src = imgList[(level - 1) * 2 + 1];
+  }
 }
 function drawBall() {
   ctx.drawImage(
@@ -423,6 +434,7 @@ function drawBackground() {
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawBricks();
+  drawBallImage();
   drawBall();
   drawPaddle();
   drawMonster();
@@ -485,7 +497,8 @@ function draw() {
           timer = setInterval(draw, 10);
         }, 800);
         x = paddleX + paddleWidth / 2;
-        y = canvas.height - paddleHeight - 10;
+        y = canvas.height - paddleHeight - 20;
+        dy = -Math.abs(dy);
         //init_speed(level);
       }
     }
