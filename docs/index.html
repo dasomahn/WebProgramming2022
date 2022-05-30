@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>벽돌깨기 게임</title>
+    <link href="index+settings.css" rel="stylesheet" />
+    <script defer src="main+settings.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="backgroundDamage"></div>
+    <div id="background"></div>
+    <div id="content">
+      <canvas id="myCanvas" class="hide" width="1024" height="667"></canvas>
+
+      <audio id="bgm" src="./sound/bgm1.mp3" autoplay loop>
+        <!-- <source src="./sound/bgm1.mp3"> -->
+      </audio>
+
+      <div id="start-page">
+        <div id="settingbutton">
+          <img src="./image/settingButtonIMG.png" />
+        </div>
+        <div id="playbutton">
+          <img src="./image/playButtonIMG.png" />
+        </div>
+      </div>
+      <div id="second-page" class="hide"></div>
+
+      <!-- settings page start -->
+      <div id="settings-page" class="hide">
+        <div id="settings-container">
+          <form method="POST" name="settings">
+            <div id="level-select">
+              <div id="level-change">
+                <img
+                  id="select-left"
+                  onclick="plusDivs(-1)"
+                  src="./image/button_left.png"
+                  width="30px"
+                />
+
+                <div id="level-easy" class="levels">
+                  <div class="level-imgs">
+                    <img src="./image/level1.png" class="level-text" />
+                    <img src="./image/bg1.png" class="level-img" />
+                  </div>
+                </div>
+
+                <div id="level-medium" class="levels">
+                  <img src="./image/level2.png" class="level-text" />
+                  <img src="./image/bg2.jpeg" class="level-img" />
+                </div>
+
+                <div id="level-hard" class="levels">
+                  <img src="./image/level3.png" class="level-text" />
+                  <img src="./image/bg3.jpeg" class="level-img" />
+                </div>
+
+                <img
+                  id="select-right"
+                  onclick="plusDivs(+1)"
+                  src="./image/button_right.png"
+                  width="30px"
+                />
+              </div>
+            </div>
+
+            <div id="bgm-select">
+              <img src="./image/music.png" width="85px" />
+              <div id="bgm-container">
+                <input type="radio" name="bgm" id="bgm1" value="bgm1" checked />
+                <input type="radio" name="bgm" id="bgm2" value="bgm2" />
+                <input type="radio" name="bgm" id="bgm3" value="bgm3" />
+
+                <label id="bgm1label" for="bgm1" class="bgmLabel">SONG 1</label>
+                <label id="bgm2label" for="bgm2" class="bgmLabel">SONG 2</label>
+                <label id="bgm3label" for="bgm3" class="bgmLabel">SONG 3</label>
+              </div>
+            </div>
+
+            <div id="bounce-select">
+              <img src="./image/sound.png" width="85px" />
+              <div id="bounce-container">
+                <input
+                  type="radio"
+                  name="bounce"
+                  value="bounce1"
+                  id="bounce1"
+                  checked
+                />
+                <input
+                  type="radio"
+                  name="bounce"
+                  value="bounce2"
+                  id="bounce2"
+                />
+                <input
+                  type="radio"
+                  name="bounce"
+                  value="bounce3"
+                  id="bounce3"
+                />
+
+                <label id="bounce1label" for="bounce1" class="bounceLabel"
+                  >EFFECT 1</label
+                >
+                <label id="bounce2label" for="bounce2" class="bounceLabel"
+                  >EFFECT 2</label
+                >
+                <label id="bounce3label" for="bounce3" class="bounceLabel"
+                  >EFFECT 3</label
+                >
+              </div>
+            </div>
+
+            <div id="save_div">
+              <img src="./image/button_check.png" id="save_settings" />
+            </div>
+            <div id="cancel_div">
+              <img src="./image/button_cancel.png" id="cancel_settings" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- settings page end -->
+      <div id="pause_div">
+        <img src="./image/pause.png" id="pause_btn" />
+      </div>
+      <div id="pause_popup" class="hide">
+
+        <div id="pause_buttons">
+          <div id="resume">
+            <img src="./image/play.png" id="resume_btn" />
+          </div>
+          <div id="retry">
+            <img src="./image/retry.png" id="retry_btn" />
+          </div>
+          <div id="home">
+            <img src="./image/home.png" id="home_btn" />
+          </div>
+        </div>
+      </div>
+
+      <div id="score_popup" class="hide">
+        <div id="print_info">
+          <div id="print_level"></div>
+          <p id="print_score"></p>
+        </div>
+
+        <div id="score_buttons">
+          <div id="next_level">
+            <img src="./image/next.png" id="click_next" width="50px" />
+          </div>
+          <div id="to_main">
+            <img src="./image/home_text.png" id="click_main" width="50px" />
+          </div>
+        </div>
+      </div>
+
+      <div id="pause" class="hide"></div>
+      <div id="dead" class="hide"></div>
+
+    </div>
+  </body>
+</html>

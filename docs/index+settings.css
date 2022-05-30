@@ -1,0 +1,348 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+#background {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-image: url("./image/startPageBackImg.png");
+  background-size: cover;
+  opacity: 0.6;
+}
+#backgroundDamage {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-image: url("./image/startPageBackDamageImg.png");
+  background-size: cover;
+  opacity: 0;
+}
+#content {
+  position: relative;
+  width: 1024px;
+  height: 667px;
+  margin: auto;
+}
+#myCanvas {
+  display: none;
+  border: solid 4px #ffbc2f;
+  border-radius: 20px;
+  margin: auto;
+  background-image: url("./image/bg1.png");
+  background-size: cover;
+  position: relative;
+}
+.hide {
+  display: none;
+}
+/* 시작페이지  css*/
+#start-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  background-image: url("./image/startPageBackgroundIMG.jpg");
+  border-radius: 20px;
+}
+#playbutton {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+#settingbutton {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+#playbutton > img {
+  width: 180px;
+}
+#settingbutton > img {
+  width: 50px;
+  height: 50px;
+}
+#playbutton > img:hover {
+  width: 200px;
+}
+#settingbutton > img:hover {
+  width: 60px;
+  height: 60px;
+}
+#second-page {
+  background: #eaf7fd;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+/* settings css start */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  padding: 30px 20px;
+  z-index: 1;
+  width: 500px;
+  height: 400px;
+  border-radius: 20px;
+}
+
+#save_div {
+  display: flex;
+  justify-content: center;
+}
+
+#save_settings {
+  width: 60px;
+}
+
+#save_settings:hover {
+  width: 70px;
+}
+
+#cancel_settings {
+  width: 60px;
+
+  position: absolute;
+  top: -20px;
+  right: -20px;
+}
+
+#cancel_settings:hover {
+  width: 70px;
+  top: -25px;
+  right: -25px;
+}
+
+#level-change {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#select-left:hover,
+#select-right:hover {
+  filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(0);
+}
+
+.level-img {
+  width: 300px;
+  height: 175px;
+  border: 5px #ffbd31 solid;
+  border-radius: 20px;
+  opacity: 0.75;
+  /* transition: all 0.3s; */
+}
+
+.level-text {
+  z-index: 2;
+  position: absolute;
+  left: 145px;
+  top: 85px;
+}
+
+label {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  height: 30px;
+  line-height: 30px;
+  width: 80px;
+  text-align: center;
+  margin: 0 5px;
+  color: #444;
+}
+
+#bgm-select,
+#bounce-select {
+  padding: 15px 0;
+}
+
+#bgm-select,
+#bounce-select,
+#bgm-container,
+#bounce-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#bgm-container > input,
+#bounce-container > input {
+  display: none;
+}
+
+#bounce-container > input:nth-of-type(1):checked ~ #bounce1label,
+#bounce-container > input:nth-of-type(2):checked ~ #bounce2label,
+#bounce-container > input:nth-of-type(3):checked ~ #bounce3label,
+#bgm-container > input:nth-of-type(1):checked ~ #bgm1label,
+#bgm-container > input:nth-of-type(2):checked ~ #bgm2label,
+#bgm-container > input:nth-of-type(3):checked ~ #bgm3label {
+  margin: 0;
+  border: 5px #ffbd31 solid;
+  border-radius: 10px;
+}
+
+/* settings css end */
+
+#pause_div {
+  display:flex; justify-content: center; align-items:center;
+  display: none;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#pause_btn {
+  width: 50px; height: 50px;
+}
+#pause_btn:hover {
+  width: 60px; height: 60px;
+}
+
+#pause_popup {
+  background: url("./image/small_woodSign.png") center center no-repeat;
+  background-size: 500px;
+}
+
+#pause_buttons {
+  padding-top: 150px;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 60px;
+}
+
+#resume, #retry, #home {
+  width: 60px;
+  text-align: center;
+}
+
+#pause_buttons img{
+  height: 50px;
+}
+
+#pause_buttons img:hover{
+  height: 60px;
+}
+
+
+/* score popup css start */
+#score_popup {
+  background: url("./image/woodSign.png") center center no-repeat;
+  background-size: 500px;
+}
+
+.bounce-in {
+  animation: bounce-in 0.5s ease;
+}
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.bounce-out {
+  animation: bounce-out 0.5s ease;
+}
+@keyframes bounce-out {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+#print_info {
+  padding-top: 110px;
+  text-align: center;
+}
+
+.star {
+  width: 50px !important;
+  padding: 0 10px;
+}
+
+#print_level > img {
+  width: 200px;
+}
+
+#print_score {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: white;
+  font-size: 25px;
+  padding: 20px 0 10px 0;
+}
+
+#score_buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 60px;
+}
+
+#next_level,
+#to_main {
+  width: 60px;
+  text-align: center;
+}
+
+#click_next:hover,
+#click_main:hover {
+  width: 60px;
+}
+
+#dead, #pause {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  border-radius: 20px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  opacity: 0.7;
+}
+
+#pause {
+  opacity: 0.4;
+}
+
+
+/* score popup css end */
